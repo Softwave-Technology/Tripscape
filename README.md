@@ -36,9 +36,11 @@
 
 ## 🚧 TODOs
  
- -Connect Firebase Auth
- -OpenAI-based trip generation
- -Speech-to-text and voice input
- -Add location suggestions using map
- -Save and retrieve user trips
- -Notification reminders
+-Connect Firebase Auth
+-OpenAI-based trip generation
+-Speech-to-text and voice input
+-Add location suggestions using map
+-Save and retrieve user trips
+-Notification reminders
+
+---
