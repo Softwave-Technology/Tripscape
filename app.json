@@ -3,7 +3,6 @@
     "name": "tripscape",
     "slug": "tripscape",
     "version": "1.0.0",
-
     "scheme": "tripscape",
     "web": {
       "bundler": "metro",
@@ -29,12 +28,14 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anilyavas.tripscape"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff",
+        "bundleIdentifier": "com.anilyavas.tripscape"
       }
     }
   }
