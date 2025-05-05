@@ -12,10 +12,11 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@clerk/clerk-expo": "^2.10.7",
     "@expo/vector-icons": "^14.0.0",
     "@react-navigation/native": "^7.0.3",
+    "@supabase/supabase-js": "^2.49.4",
     "expo": "^53.0.7",
+    "expo-auth-session": "^6.1.5",
     "expo-constants": "~17.1.4",
     "expo-linking": "~7.1.4",
     "expo-location": "~18.1.4",
