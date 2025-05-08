@@ -1,7 +1,7 @@
 import { useOAuth, useSignIn, useSignUp } from '@clerk/clerk-expo';
 import { router } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { Alert, SafeAreaView, View } from 'react-native';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -14,7 +14,25 @@ export default function Login() {
   const { startOAuthFlow: googleAuth } = useOAuth({ strategy: 'oauth_google' });
   const { startOAuthFlow: appleAuth } = useOAuth({ strategy: 'oauth_apple' });
 
-  const handleEmailAuth = async () => {};
+  const handleEmailAuth = async () => {
+    if (isLogin && signInLoaded) {
+      try {
+        const res = await signIn.create({ identifier: email, password });
+        await setActiveSignIn({ session: res.createdSessionId });
+        router.replace('/(tabs)');
+      } catch (err: any) {
+        Alert.alert('Failed to login ', err.message);
+      }
+    } else if (!isLogin && signUpLoaded) {
+      try {
+        const res = await signUp.create({ emailAddress: email, password });
+        await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
+        Alert.alert('Verify Email', 'A verification code has been sent to your email.');
+      } catch (err: any) {
+        Alert.alert('Signup error', err.errors?.[0]?.message || 'Signup failed');
+      }
+    }
+  };
 
   const handleGoogleAuth = useCallback(async () => {
     try {
